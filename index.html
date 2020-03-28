@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <title>Population Chart</title>
+  </head>
+  <body>
+    <div class="container">
+      <canvas id="myChart" > </canvas>
+    </div>
+    <!--Creating Variable for our chart-->
+    <script>
+      let myChart = document.getElementById('myChart').getContext('2d');
+//Global options
+            Chart.defaults.global.defaultFontFamily ='Lato';
+            Chart.defaults.global.defaultFontSize =18;
+            Chart.defaults.global.defaultFontColor ='#777';
+      let massPopChart = new Chart(myChart,{
+        type:'pie', // bar, horizontalBar, pie, line,doughnut,radar
+         data:{
+          labels:['Amritsar','Jalandhar','Chandigarh','Patiala','Ferozepur','Mohali'],
+          datasets:[{
+            label:'population 2011',
+            data:[
+            1132761,
+            862196,
+          	960787,
+          	445196,
+          	110091,
+            146104
+            ],
+            backgroundColor:[
+                'red',
+                '#33cccc',
+                'green',
+                '#ff66ff',
+                'blue',
+                'maroon'
+            ],
+            borderWidth: 1,
+            borderColor:'#777',
+            hoverBorderWidth: 3,
+            hoverBorderColor:'#000'
+          }]
+        },
+        options:{
+            title:{
+                display:true,
+                text: 'Urban Agglomerations Constituents Population 2011 Census',
+                fontSize: 25
+            },
+            legend:{
+                display:true,
+                position:'right',
+                labels:{
+                    fontColor:'#000'
+                }
+            },
+            layout:{
+                padding:{
+                     left:50,
+                     right:0,
+                     bottom:0,
+                     top:0
+                }
+            },
+            tooltips:{
+                //to disable tooltips over each column
+                enabled:true
+            }
+        }
+      });
+    </script>
+  </body>
+</html>
